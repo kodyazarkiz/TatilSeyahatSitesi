@@ -1,0 +1,80 @@
+﻿@using TatilSeyahatSitesi.Models.Sınıflar;
+@model List<Adres>
+@{
+    ViewBag.Title = "Adres";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #e9d66693;
+            color: black;
+            transform: scale(1.02);
+            transition: 0.3s ease;
+        }
+
+        .table thead {
+            background-color: #4800ff;
+            color: white;
+        }
+
+        .table {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Adres Listesi</h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Başlık</th>
+                    <th>AdresAçık</th>
+                    <th>Mail</th>
+                    <th>Telefon</th>
+                    <th>Konum</th>
+                    <th>Sil</th>
+                    <th>Düzenle</th>
+                </tr>
+            </thead>
+            @foreach (var x in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@x.ID</td>
+                        <td>@x.Baslik</td>
+                        <td>@x.AdresAcik</td>
+                        <td>@x.Mail</td>
+                        <td>@x.Telefon</td>
+                        <td>@x.Konum</td>
+                        <td><a href="/Admin/AdresSil/@x.ID" class="btn btn-danger"><i class="fas fa-trash"></i> Sil</a></td>
+                        <td><a href="/Admin/AdresGetir/@x.ID" class="btn btn-warning"><i class="fas fa-pencil-alt"></i> Düzenle</a></td>
+                        @*<td><a href="/Blog/BlogDetay/@x.ID" class="btn btn-secondary"><i class="fas fa-book-reader"></i> Detaylar</a></td>*@
+                        @*<td><span class="badge badge-success">Sil</span></td>*@
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+﻿@*<div class="content-form">
+        <h3>Bir Yorum Yapın</h3>
+        <form method="post">
+            <input type="text" placeholder="Kullanıcı Adı" name="KullaniciAdi" value="@ViewBag.deger" required disabled/>
+            <input type="text" placeholder="Kullanıcı Adı" name="KullaniciAdi" required />
+            <input type="text" placeholder="Mail Adresi" name="Mail" required />
+            <textarea placeholder="Yorum" name="Yorum"></textarea>
+            <input type="submit" value="Gönder" />
+        </form>
+    </div>*@
+
+
+@model TatilSeyahatSitesi.Models.Sınıflar.Yorumlar
+
+@using (Html.BeginForm("YorumYap", "Blog", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Blogid, new { Value = ViewBag.deger }) <!-- Blogid değerini gizli alan olarak gönderiyoruz -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.KullaniciAdi)
+        @Html.TextBoxFor(model => model.KullaniciAdi, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Mail)
+        @Html.TextBoxFor(model => model.Mail, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Yorum)
+        @Html.TextAreaFor(model => model.Yorum, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Yorum Yap</button>
+}

@@ -1,0 +1,39 @@
+﻿@model TatilSeyahatSitesi.Models.Sınıflar.Adres
+@{
+    ViewBag.Title = "AdresGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<h4 style="margin-left: 10px; margin-top: 10px; margin-bottom: 30px">Adres Bilgisi Güncelleme Sayfası</h4>
+<br />
+<br />
+<div class="container-fluid">
+    <form method="post">
+        @Html.Label("Adres ID")
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("Başlık")
+        @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+        <br />
+        @Html.Label("Açık Adres")
+        @Html.TextBoxFor(x => x.AdresAcik, new { @class = "form-control" })
+        <br />
+        @Html.Label("Mail")
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+        <br />
+        @Html.Label("Telefon")
+        @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+        <br />
+        @Html.Label("Konum")
+        @Html.TextBoxFor(x => x.Konum, new { @class = "form-control" })
+        <br />
+        @Html.Label("Açıklama")
+        @Html.TextAreaFor(x => x.Aciklama, 15, 1, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-outline-info">Güncelle</button>
+    </form>
+</div>
+
+
